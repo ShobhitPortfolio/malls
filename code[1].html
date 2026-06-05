@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRISTINE MALL ELITE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#690005",
+                    "outline": "#8e918e",
+                    "primary-fixed": "#e3e2e0",
+                    "on-surface-variant": "#c4c7c4",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-primary": "#303130",
+                    "on-background": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#3a3939",
+                    "primary": "#ffffff",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#464747",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container": "#201f1f",
+                    "on-secondary-container": "#002859",
+                    "primary-container": "#e3e2e0",
+                    "surface-tint": "#c7c6c4",
+                    "on-primary-fixed-variant": "#464746",
+                    "background": "#131313",
+                    "outline-variant": "#444845",
+                    "secondary-fixed-dim": "#abc7ff",
+                    "on-primary-fixed": "#1b1c1b",
+                    "on-primary-container": "#646463",
+                    "surface-variant": "#353534",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#004590",
+                    "error-container": "#93000a",
+                    "tertiary-fixed": "#e3e2e2",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary-container": "#636465",
+                    "tertiary-container": "#e3e2e2",
+                    "on-secondary": "#002f66",
+                    "on-surface": "#e5e2e1",
+                    "secondary-fixed": "#d7e2ff",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-primary": "#5e5e5d",
+                    "secondary": "#abc7ff",
+                    "secondary-container": "#448fff",
+                    "primary-fixed-dim": "#c7c6c4",
+                    "on-tertiary": "#2f3131",
+                    "inverse-on-surface": "#313030",
+                    "tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-secondary-fixed": "#001b3f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "25px",
+                    "lg": "25px",
+                    "xl": "25px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "container-max-width": "1440px",
+                    "gutter": "32px",
+                    "margin-desktop": "80px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Bodoni Moda"],
+                    "body-md": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "display-lg": ["Bodoni Moda"],
+                    "headline-md": ["Bodoni Moda"],
+                    "display-lg-mobile": ["Bodoni Moda"],
+                    "label-sm": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "28px", "letterSpacing": "0.03em", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        * {
+            cursor: none !important;
+        }
+
+        body {
+            background-color: #131313;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: width 0.2s ease, height 0.2s ease;
+            mix-blend-mode: difference;
+            transform: translate(-50%, -50%);
+        }
+
+        .custom-cursor.expanded {
+            width: 9px;
+            height: 9px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+        }
+
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+        .shimmer-effect::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.08), transparent);
+            transform: rotate(45deg);
+            transition: 0.8s;
+            pointer-events: none;
+        }
+
+        .shimmer-effect:hover::before {
+            left: 100%;
+        }
+
+        /* Pop-up on scroll animations */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-section.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .magnetic-wrap {
+            display: inline-block;
+        }
+
+        .parallax-bg {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        .footer-light-streak {
+            position: absolute;
+            width: 200%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: lightMove 8s infinite linear;
+        }
+
+        @keyframes lightMove {
+            0% { transform: translateX(-100%) rotate(-5deg); }
+            100% { transform: translateX(100%) rotate(-5deg); }
+        }
+
+        .rounded-25 {
+            border-radius: 25px;
+        }
+
+        @keyframes pulse-soft {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        .pulse-animation {
+            animation: pulse-soft 2s infinite;
+        }
+
+        .map-entrance {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .map-entrance.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .dot-shimmer {
+            animation: dot-glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes dot-glow {
+            from { opacity: 0.4; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Dynamic Island Header Styling */
+        .dynamic-island {
+            width: fit-content;
+            min-width: 320px;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(229, 228, 226, 0.15); /* Platinum-ish border */
+            border-radius: 9999px;
+            padding: 8px 12px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .dynamic-island:hover {
+            min-width: 600px;
+            padding: 8px 24px;
+        }
+
+        .nav-link {
+            opacity: 0;
+            width: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            white-space: nowrap;
+        }
+
+        .dynamic-island:hover .nav-link {
+            opacity: 1;
+            width: auto;
+            margin: 0 12px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface bg-background">
+<!-- Custom Cursor -->
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<!-- Dynamic Island Header -->
+<header class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-full flex justify-center px-6">
+<div class="dynamic-island flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold text-lg">P</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] text-white/40 leading-none uppercase tracking-widest">Pristine</span>
+<span class="font-label-sm text-[12px] text-white leading-none font-semibold">Elite Hub</span>
+</div>
+</div>
+<nav class="flex items-center">
+<a class="nav-link font-label-sm text-[12px] uppercase text-white/70 hover:text-white" href="#">Directory</a>
+<a class="nav-link font-label-sm text-[12px] uppercase text-white/70 hover:text-white" href="#">Concierge</a>
+<a class="nav-link font-label-sm text-[12px] uppercase text-white/70 hover:text-white" href="#">Membership</a>
+<a class="nav-link font-label-sm text-[12px] uppercase text-white/70 hover:text-white" href="#">Global</a>
+</nav>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="bg-white text-black px-5 py-2 rounded-full font-label-sm text-[11px] uppercase font-bold tracking-widest hover:bg-white/90 transition-all">
+                Reserve
+            </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center pt-24">
+<!-- Hero Background: Fixed repetition issues -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat parallax-bg scale-110" id="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjwrJkSsB6w8XXHVM0godCcHHy0Q0vw6KZEWCW8bJr4CJWxqJHP01hiMKKlxRC2WPhsnIpY0uoHOsQgw8XQt8wrarrnEuuKxH42APrb2kjZZjSzYB-Av3FGXotKqDMW3lRs69bg69e1h8mPLwtxRrX2DA3YO665EkkAEt4f-AV1wCg9xKo2afyjnkDeCMUtsPpKfJpw37lwOwwwHvmRAPAoZG71HgmKK7ZTGz2zc7u-td5Ro8PTFxjpUHrLd7w_wN8UAL2VaYt6GE'); background-repeat: no-repeat; background-size: cover;">
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80"></div>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center px-margin-mobile">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary uppercase tracking-tighter mb-12 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+            PRISTINE MALL ELITE
+        </h1>
+<div class="magnetic-wrap mb-12">
+<button class="interactive bg-primary text-on-primary px-12 py-4 font-label-sm text-label-sm uppercase tracking-widest transition-all group flex items-center gap-4 rounded-25">
+                Reserve Experience
+                <span class="material-symbols-outlined text-label-sm group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="w-full max-w-5xl mt-8 rounded-25 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border border-white/5 opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">
+<img alt="Pristine Main Hall" class="w-full h-[400px] object-cover grayscale-[0.2]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjwrJkSsB6w8XXHVM0godCcHHy0Q0vw6KZEWCW8bJr4CJWxqJHP01hiMKKlxRC2WPhsnIpY0uoHOsQgw8XQt8wrarrnEuuKxH42APrb2kjZZjSzYB-Av3FGXotKqDMW3lRs69bg69e1h8mPLwtxRrX2DA3YO665EkkAEt4f-AV1wCg9xKo2afyjnkDeCMUtsPpKfJpw37lwOwwwHvmRAPAoZG71HgmKK7ZTGz2zc7u-td5Ro8PTFxjpUHrLd7w_wN8UAL2VaYt6GE"/>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+<span class="material-symbols-outlined text-primary text-4xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Boutique Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-background relative overflow-hidden">
+<div class="reveal-section flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-4">The Collection</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A curated selection of the world's most prestigious maisons, redefined for the modern elite.</p>
+</div>
+<div class="interactive font-label-sm text-label-sm text-primary border-b border-primary/40 pb-2 cursor-pointer hover:border-primary transition-colors">View Entire Directory</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Boutique 1 -->
+<div class="reveal-section interactive glass-panel group cursor-pointer shimmer-effect border border-white/10 rounded-25">
+<div class="relative h-[500px] overflow-hidden rounded-25">
+<img alt="Velora Couture" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoMBrmp7k2x1x4peHfaX4hntMQRr9RG4xXBGgmYNpSxTKe0Zol3I-czvlUSZhi2qc5CpZbDXLQYXwroGxIO_U_6tLVtjuY5pOjiZOLdXsu1hYs81zLsen57jDHV_1aGyJrmRuju2mSEsj9xOahDU8vJdHV7NByyh0ODqKTNjq4ODoZqX77EIhrZIVGem0yfM7sAADc1OQjoTSLKyoRr6xrRYTfjvUhrV_B4D_AW0bOKopxmSw3yLhkgWnAhi8rVOTGOEXT0hGI2uQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<span class="font-label-sm text-label-sm text-primary/70 tracking-widest uppercase mb-2 block">High Fashion</span>
+<h3 class="font-headline-md text-headline-md text-primary uppercase">Velora Couture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Elegant heritage meet digital craftsmanship.</p>
+</div>
+</div>
+</div>
+<!-- Boutique 2 -->
+<div class="reveal-section interactive glass-panel group cursor-pointer shimmer-effect border border-white/10 rounded-25">
+<div class="relative h-[500px] overflow-hidden rounded-25">
+<img alt="Aurum Tech" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj3tS8RCjFwDV376Dmp3HB0gFutZZsuyTI0Q2tBfy67Z37Ki7z9t8027mugevN_iZToRzaTSst2nMKYhseKT-7nCpG9ITA3z0c6Tt4y1cvGRA0jpC9Aw04-fnTKjILKg6YtTEQEG2am9OEWFqVYhfDVBplGvBu8vEplVjUv6YzYduP4MnPPN80I-HgZ0RNy8se94w7-LQ12dJZ2WQBQ05ykzMnHnYKYbCJ0d0NOprkpEjJrniSy5yLCKTotHOG8YnRT_AgKyVxlgg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80"></div>
+<div class="absolute bottom-10 left-10 right-10">
+<span class="font-label-sm text-label-sm text-primary/70 tracking-widest uppercase mb-2 block">Future Tech</span>
+<h3 class="font-headline-md text-headline-md text-primary uppercase">Aurum Tech</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">Precision instruments for the avant-garde.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Locations Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest relative overflow-hidden">
+<div class="reveal-section mb-20 text-center">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase mb-4">Global Reach</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Connecting the world's most iconic skylines through a singular vision of luxury.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- London -->
+<div class="reveal-section group relative h-[400px] rounded-25 overflow-hidden border border-white/5">
+<img alt="London" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzsPY-XMq_ovZgveqQc3RC7p-hEz-goQgOkOZSyoXslu7rLjap9CdSRhw1xsjWTqZJlJWeqeowqjyf7fx_aoYXyRIPlwpUH9c75ZpxDjBvWWpFOINV0fhazNALps2elw-6ZE6vhhYcWCb7aVFOlcGm-9b0b6hBPv5hLzdCPMJrfrWbtxBxvttNzvtqzk_RzYB04HfglOAPby318b72u-Xm7Sotrb6i6JAqxjSogjwQn7ns3CMf5MCZC13T0E0FklvLywXSF3XFjN8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h4 class="font-headline-md text-white uppercase tracking-wider">London</h4>
+<p class="font-label-sm text-white/60 uppercase tracking-[0.2em] mt-2">Mayfair District</p>
+</div>
+</div>
+<!-- Dubai -->
+<div class="reveal-section group relative h-[400px] rounded-25 overflow-hidden border border-white/5">
+<img alt="Dubai" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvvHWiq8xDhV8hBWHqscqyUxpnGYnceP5ES5dNdUKpmQzD2xRHb2zlcdSxN0aZ4nygr3LM9eBqoVRmr5KIlfrXyFvwoUT7USDiH7Q2hsVGKIwmfvYiSDX58PPnj79JbBfVPln4sutPmLyAyO7Po7mI4uFHGQQ1mQfUcuqcmPhXG4Sd_2Mv6V0C9I9NSomTPe8Inh-s7q4K8wR3GpxqyJ_XwVI7uPahVBDXx3LEl5Ghou1txZvSv5GxwFVUx7XS89obVe_OrfVhGw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h4 class="font-headline-md text-white uppercase tracking-wider">Dubai</h4>
+<p class="font-label-sm text-white/60 uppercase tracking-[0.2em] mt-2">Downtown Elite</p>
+</div>
+</div>
+<!-- Singapore -->
+<div class="reveal-section group relative h-[400px] rounded-25 overflow-hidden border border-white/5">
+<img alt="Singapore" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW5-6-knN-hRU5CSwpzOyjxB3u_gcuNamYIIsq0vViNx9OlouqCF61grKSd534S_DYgj4NvzKKVyiDjuzjSermRCMtZH__bs5RlXbOgEUIPFcuOV5FUODtevWr7wr_C_kg5g5q_rQCyFncSxIc1KAne7lao5aE_Jw0BfOqRKln8BQOjAMU6xD8ZegAOJLPhfQN4JgtIILLtsGeMcW_sLdSXmLyyHrfuKJ75az2pDUIbS3vXqSXBqauj51LX1Cgd0kaE-Kn2PnykmA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h4 class="font-headline-md text-white uppercase tracking-wider">Singapore</h4>
+<p class="font-label-sm text-white/60 uppercase tracking-[0.2em] mt-2">Marina Bay Sands</p>
+</div>
+</div>
+<!-- Paris -->
+<div class="reveal-section group relative h-[400px] rounded-25 overflow-hidden border border-white/5">
+<img alt="Paris" class="w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5CEyNNOm9dexgl6DkDPvrxc5Zm54sD13HbW65Kqu967YkqseC6ZeNKGNzr7VRwbXuSeAFBh4DdP7o4sbVngz5o_ahH7nhZ7GeCffSCuRGC0p0Hz-bK-Eb0096Sd0kB0MmNSCjt08Ih4cEaWUrHqEn6j12l3ejTlyy7p7z1AcEhNiIaKLhYtEnDdpEvKq-rt9uJyi2JWL_x7hBmLbuHqCLN7LZbFwLnlRxzQE0WubWutUrY_s8Z2tqclkoM5lzWzi4IQRKBYZoMsw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h4 class="font-headline-md text-white uppercase tracking-wider">Paris</h4>
+<p class="font-label-sm text-white/60 uppercase tracking-[0.2em] mt-2">Avenue Montaigne</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Concierge Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-background relative">
+<div class="reveal-section flex flex-col lg:flex-row gap-20">
+<!-- Inquiry Form -->
+<div class="lg:w-1/2 glass-panel p-10 md:p-16 border border-white/10 rounded-25">
+<h3 class="font-headline-md text-primary uppercase mb-8">Elite Inquiries</h3>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-label-sm text-[10px] text-white/40 uppercase tracking-widest">Full Name</label>
+<input class="w-full bg-transparent border-b border-white/20 focus:border-primary py-3 outline-none font-body-md transition-colors" placeholder="Alexander Thorne" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-[10px] text-white/40 uppercase tracking-widest">Email Address</label>
+<input class="w-full bg-transparent border-b border-white/20 focus:border-primary py-3 outline-none font-body-md transition-colors" placeholder="concierge@private.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-[10px] text-white/40 uppercase tracking-widest">Interested Service</label>
+<select class="w-full bg-transparent border-b border-white/20 focus:border-primary py-3 outline-none font-body-md transition-colors appearance-none">
+<option class="bg-black">Private Personal Shopping</option>
+<option class="bg-black">After-Hours Gallery Access</option>
+<option class="bg-black">Helicopter Arrival Service</option>
+<option class="bg-black">Membership Application</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-[10px] text-white/40 uppercase tracking-widest">Personal Request</label>
+<textarea class="w-full bg-transparent border-b border-white/20 focus:border-primary py-3 outline-none font-body-md transition-colors resize-none" placeholder="How may we curate your experience?" rows="4"></textarea>
+</div>
+<button class="w-full py-5 bg-white text-black font-label-sm uppercase tracking-[0.3em] font-bold rounded-25 hover:bg-white/90 transition-all">Submit Invitation</button>
+</form>
+</div>
+<!-- Contact Details & Map -->
+<div class="lg:w-1/2 flex flex-col justify-between py-4">
+<div>
+<h3 class="font-headline-md text-primary uppercase mb-12">Connect Privately</h3>
+<div class="space-y-12">
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-white/30 text-3xl">headset_mic</span>
+<div>
+<h5 class="font-label-sm text-white uppercase tracking-widest mb-1">Global Concierge</h5>
+<p class="font-headline-md text-white/80">+44 20 7946 0123</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-white/30 text-3xl">mail</span>
+<div>
+<h5 class="font-label-sm text-white uppercase tracking-widest mb-1">Inquiries</h5>
+<p class="font-headline-md text-white/80">elite@pristine.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 rounded-25 overflow-hidden border border-white/10 h-64 grayscale opacity-60">
+<img alt="Map Location" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCScx8poJqiyu_F23HPZBO2bLwNqjaIbCNREwehSYSEJ-9riXR5fuIgKg-WI1rNC7_zp-6iq0psePdz93VIR7CMO_SNGactv8FBT9n2BfAWWlN6yjnLHbgR4neMvBm2Av7yAS0akXCu_1TddPvNwkfK7XeWbiliFL7mWAt_uC_fxA0yPtjWINEc5RQaqSJYiMvlyI8ky7i1lMIMoqzU1voyst7sA0PUC_gZcYXT7XJjD7-cEeIZ9oj6FpOUNRysCl-KRMjZV3hkD4A"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Controls -->
+<div class="fixed bottom-10 right-10 z-[60] flex flex-col gap-4 items-center">
+<div class="magnetic-wrap">
+<button class="interactive w-16 h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center text-primary hover:bg-white/20 transition-all pulse-animation" id="chat-trigger">
+<span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+</div>
+<div class="magnetic-wrap">
+<button class="interactive glass-panel w-20 h-20 flex flex-col items-center justify-center text-primary transition-all group overflow-hidden bg-white/5 border border-white/20" id="map-trigger">
+<span class="material-symbols-outlined text-3xl mb-1">map</span>
+<span class="text-[8px] font-label-sm uppercase tracking-tighter">Explore</span>
+<div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</div>
+<!-- Mini-Map Popup -->
+<div class="fixed inset-0 z-[200] hidden flex items-center justify-center bg-black/90 backdrop-blur-2xl p-margin-mobile" id="map-popup">
+<div class="glass-panel w-full max-w-4xl h-[80vh] relative p-8 flex flex-col border border-white/20 map-entrance" id="map-content">
+<button class="interactive absolute top-6 right-6 text-primary hover:rotate-90 transition-transform" id="map-close">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<h4 class="font-headline-md text-headline-md text-primary uppercase mb-8">Pristine Directory Map</h4>
+<div class="flex-grow bg-black rounded-25 relative overflow-hidden flex items-center justify-center border border-white/10">
+<div class="absolute inset-0 opacity-40">
+<img alt="Mall Map" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCScx8poJqiyu_F23HPZBO2bLwNqjaIbCNREwehSYSEJ-9riXR5fuIgKg-WI1rNC7_zp-6iq0psePdz93VIR7CMO_SNGactv8FBT9n2BfAWWlN6yjnLHbgR4neMvBm2Av7yAS0akXCu_1TddPvNwkfK7XeWbiliFL7mWAt_uC_fxA0yPtjWINEc5RQaqSJYiMvlyI8ky7i1lMIMoqzU1voyst7sA0PUC_gZcYXT7XJjD7-cEeIZ9oj6FpOUNRysCl-KRMjZV3hkD4A"/>
+</div>
+<div class="relative z-10 text-center">
+<span class="material-symbols-outlined text-6xl text-primary mb-4">location_on</span>
+<p class="font-headline-md text-primary">SELECT A LEVEL</p>
+</div>
+</div>
+<div class="mt-8 flex flex-wrap gap-4">
+<button class="interactive flex-1 py-3 glass-panel text-[10px] md:text-label-sm font-label-sm uppercase tracking-widest hover:bg-white/10 transition-colors border border-white/10 rounded-25">Level 01: Esplanade</button>
+<button class="interactive flex-1 py-3 glass-panel text-[10px] md:text-label-sm font-label-sm uppercase tracking-widest hover:bg-white/10 transition-colors border border-white/10 rounded-25">Level 02: Haute Monde</button>
+<button class="interactive flex-1 py-3 glass-panel text-[10px] md:text-label-sm font-label-sm uppercase tracking-widest hover:bg-white/10 transition-colors border border-white/10 rounded-25">Level 03: Zenith</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="reveal-section bg-background w-full py-24 px-margin-mobile md:px-margin-desktop border-t border-white/10 relative overflow-hidden">
+<div class="footer-light-streak top-0"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between gap-16">
+<div class="max-w-sm">
+<div class="font-headline-md text-headline-md text-primary uppercase mb-6 tracking-widest">PRISTINE</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Redefining the architecture of luxury since 2024. An exclusive sanctuary for the world's most discerning individuals.</p>
+<div class="flex gap-6">
+<span class="interactive material-symbols-outlined text-primary hover:text-white transition-colors">public</span>
+<span class="interactive material-symbols-outlined text-primary hover:text-white transition-colors">stars</span>
+<span class="interactive material-symbols-outlined text-primary hover:text-white transition-colors">laundry</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 md:gap-24">
+<div>
+<h5 class="font-label-sm text-label-sm text-primary uppercase mb-6 tracking-widest">Navigation</h5>
+<ul class="space-y-4">
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Privacy Policy</a></li>
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Terms of Excellence</a></li>
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Investor Relations</a></li>
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Global Locations</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-label-sm text-primary uppercase mb-6 tracking-widest">Inquiries</h5>
+<ul class="space-y-4">
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Concierge Desk</a></li>
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Elite Membership</a></li>
+<li><a class="interactive font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-opacity duration-300" href="#">Brand Relations</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+<span class="font-label-sm text-label-sm text-on-surface-variant/40 uppercase tracking-widest">© 2024 PRISTINE MALL ELITE. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-8">
+<span class="font-label-sm text-label-sm text-on-surface-variant/40">LONDON</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/40">DUBAI</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/40">SINGAPORE</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/40">PARIS</span>
+</div>
+</div>
+</footer>
+<script>
+    // Custom Cursor Logic
+    const cursor = document.getElementById('cursor');
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+        let lerpAmount = 0.25; 
+        cursorX += (mouseX - cursorX) * lerpAmount;
+        cursorY += (mouseY - cursorY) * lerpAmount;
+
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        
+        requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    // Growing by 1px on hover
+    document.querySelectorAll('.interactive, a, button, input, select, textarea, .cursor-pointer').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('expanded');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('expanded');
+        });
+    });
+
+    // Pop-up Scroll Animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-section').forEach(section => revealObserver.observe(section));
+
+    // Optimized Parallax
+    let scrollY = 0;
+    const heroBg = document.getElementById('hero-bg');
+    
+    function handleParallax() {
+        if (heroBg) {
+            heroBg.style.transform = `translate3d(0, ${window.pageYOffset * 0.15}px, 0) scale(1.1)`;
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(handleParallax);
+    }, { passive: true });
+
+    // Magnetic Wrap
+    document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
+        wrap.addEventListener('mousemove', (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            wrap.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        wrap.addEventListener('mouseleave', () => {
+            wrap.style.transform = `translate(0px, 0px)`;
+        });
+    });
+
+    // Map Popup Logic
+    const mapTrigger = document.getElementById('map-trigger');
+    const mapPopup = document.getElementById('map-popup');
+    const mapContent = document.getElementById('map-content');
+    const mapClose = document.getElementById('map-close');
+
+    mapTrigger.addEventListener('click', () => {
+        mapPopup.classList.remove('hidden');
+        setTimeout(() => mapContent.classList.add('show'), 50);
+        document.body.style.overflow = 'hidden';
+    });
+
+    const closeMap = () => {
+        mapContent.classList.remove('show');
+        setTimeout(() => {
+            mapPopup.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 600);
+    };
+
+    mapClose.addEventListener('click', closeMap);
+    mapPopup.addEventListener('click', (e) => {
+        if (e.target === mapPopup) closeMap();
+    });
+</script>
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</body></html>
